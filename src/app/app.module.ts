@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MenuBarModule } from './modules/components/menu-bar/menu-bar.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -16,6 +17,7 @@ import { FieldsetModule } from 'primeng/fieldset';
     InputTextModule,
     FieldsetModule,
     BrowserAnimationsModule,
+    MenuBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

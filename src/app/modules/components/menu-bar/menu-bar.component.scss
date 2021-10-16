@@ -1,0 +1,16 @@
+:host ::ng-deep .p-menubar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+
+.menubar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #aeecffce;
+  border: none;
+  padding: 0 8px;
+}
