@@ -20,6 +20,12 @@
   font-size: 2px;
 }
 
+.header-card {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
 .acoes :last-child {
   margin-left: 8px;
 }

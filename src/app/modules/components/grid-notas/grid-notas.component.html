@@ -1,0 +1,168 @@
+<p-toast></p-toast>
+<div class="card">
+  <div class="header-card">
+    <h1>Listagem de Notas</h1>
+  </div>
+  <p-table
+    styleClass="p-datatable-sm"
+    [value]="customers"
+    [paginator]="true"
+    dataKey="id"
+    [rows]="rows"
+    editMode="row"
+    [showCurrentPageReport]="true"
+    [(first)]="first"
+    responsiveLayout="scroll"
+    currentPageReportTemplate="{first} a {last} de {totalRecords}"
+    [rowsPerPageOptions]="[10, 25, 50]"
+  >
+    <ng-template class="header-table" pTemplate="header">
+      <tr>
+        <th>MATRÍCULA</th>
+        <th>NOME</th>
+        <th>1º BIM</th>
+        <th>2º BIM</th>
+        <th>3º BIM</th>
+        <th>4º BIM</th>
+        <th>FINAL</th>
+        <th>AÇÕES</th>
+      </tr>
+    </ng-template>
+    <ng-template
+      pTemplate="body"
+      let-aluno
+      let-editing="editing"
+      let-ri="rowIndex"
+    >
+      <tr [pEditableRow]="aluno">
+        <td>
+          {{ aluno.id }}
+        </td>
+        <td>
+          {{ aluno.nome }}
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                style="max-width: 100px"
+                pInputText
+                type="number"
+                [(ngModel)]="aluno.notaUm"
+                required
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ aluno.notaUm }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                style="max-width: 100px"
+                pInputText
+                type="number"
+                [(ngModel)]="aluno.notaDois"
+                required
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ aluno.notaDois }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                style="max-width: 100px"
+                pInputText
+                type="number"
+                [(ngModel)]="aluno.notaTres"
+                required
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ aluno.notaTres }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                style="max-width: 100px"
+                pInputText
+                type="number"
+                [(ngModel)]="aluno.notaQuatro"
+                required
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ aluno.notaQuatro }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                style="max-width: 100px"
+                pInputText
+                type="number"
+                [(ngModel)]="aluno.notaFinal"
+                required
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ aluno.notaFinal }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <!-- <td>{{ customer.id }}</td>
+        <td>{{ customer.nome }}</td>
+        <td>{{ customer.notaUm }}</td>
+        <td>{{ customer.notaDois }}</td>
+        <td>{{ customer.notaTres }}</td>
+        <td>{{ customer.notaQuatro }}</td>
+        <td>{{ customer.notaFinal }}</td> -->
+        <td>
+          <div class="acoes">
+            <button
+              *ngIf="!editing"
+              pButton
+              pRipple
+              type="button"
+              pInitEditableRow
+              icon="pi pi-pencil"
+              (click)="onRowEditInit(aluno)"
+              class="p-button-rounded p-button-text"
+            ></button>
+            <button
+              *ngIf="editing"
+              pButton
+              pRipple
+              type="button"
+              pSaveEditableRow
+              icon="pi pi-check"
+              (click)="onRowEditSave(aluno)"
+              class="p-button-rounded p-button-text p-button-success p-mr-2"
+            ></button>
+            <button
+              *ngIf="editing"
+              pButton
+              pRipple
+              type="button"
+              pCancelEditableRow
+              icon="pi pi-times"
+              (click)="onRowEditCancel(aluno, ri)"
+              class="p-button-rounded p-button-text p-button-danger"
+            ></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
