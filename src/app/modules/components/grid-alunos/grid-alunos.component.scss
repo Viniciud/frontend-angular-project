@@ -1,0 +1,15 @@
+.card {
+  margin: 10px;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px black;
+}
+
+.header-table {
+  display: flex;
+  align-items: center;
+}
+
+.acoes :last-child {
+  margin-left: 8px;
+}
