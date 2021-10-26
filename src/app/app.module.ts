@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FieldsetModule } from 'primeng/fieldset';
 import { GridAlunosModule } from './modules/components/grid-alunos/grid-alunos.module';
+import { GridNotasModule } from './modules/components/grid-notas/grid-notas.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { GridAlunosModule } from './modules/components/grid-alunos/grid-alunos.m
     BrowserAnimationsModule,
     MenuBarModule,
     GridAlunosModule,
+    GridNotasModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
