@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AlunoModel } from '../../models/aluno.model';
 
 @Component({
-  selector: 'app-grid-alunos',
-  templateUrl: './grid-alunos.component.html',
-  styleUrls: ['./grid-alunos.component.scss'],
+  selector: 'app-grid-professores',
+  templateUrl: './grid-professores.component.html',
+  styleUrls: ['./grid-professores.component.scss'],
 })
-export class GridAlunosComponent implements OnInit {
+export class GridProfessoresComponent implements OnInit {
   @Output() showCadastro = new EventEmitter();
   @Output() showEdicao = new EventEmitter();
 

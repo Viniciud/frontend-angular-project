@@ -1,0 +1,18 @@
+<div class="page">
+  <div>
+    <app-menu-bar (showComponent)="itemSelector($event)"></app-menu-bar>
+  </div>
+  <div *ngIf="showListaProfessores">
+    <app-grid-professores
+      (showCadastro)="showItemCadastro($event)"
+      (showEdicao)="showItemEdicao($event)"
+    ></app-grid-professores>
+  </div>
+  <div *ngIf="showFormProfessor">
+    <app-formulario-professores
+      [titulo]="tituloForm"
+      [instancia]="formInstancia"
+      [formGroup]="formGroup"
+    ></app-formulario-professores>
+  </div>
+</div>
