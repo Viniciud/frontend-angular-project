@@ -29,3 +29,7 @@
 .acoes :last-child {
   margin-left: 8px;
 }
+
+:host ::ng-deep p-datatable {
+  max-width: 200px;
+}

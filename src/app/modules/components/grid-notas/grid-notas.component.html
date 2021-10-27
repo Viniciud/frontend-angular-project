@@ -35,13 +35,13 @@
       let-ri="rowIndex"
     >
       <tr [pEditableRow]="aluno">
-        <td>
+        <td style="width: 250px">
           {{ aluno.id }}
         </td>
-        <td>
+        <td style="width: 350px">
           {{ aluno.nome }}
         </td>
-        <td>
+        <td style="width: 250px">
           <p-cellEditor>
             <ng-template pTemplate="input">
               <input
@@ -57,7 +57,7 @@
             </ng-template>
           </p-cellEditor>
         </td>
-        <td>
+        <td style="width: 250px">
           <p-cellEditor>
             <ng-template pTemplate="input">
               <input
@@ -73,7 +73,7 @@
             </ng-template>
           </p-cellEditor>
         </td>
-        <td>
+        <td style="width: 250px">
           <p-cellEditor>
             <ng-template pTemplate="input">
               <input
@@ -89,7 +89,7 @@
             </ng-template>
           </p-cellEditor>
         </td>
-        <td>
+        <td style="width: 250px">
           <p-cellEditor>
             <ng-template pTemplate="input">
               <input
@@ -105,7 +105,7 @@
             </ng-template>
           </p-cellEditor>
         </td>
-        <td>
+        <td style="width: 250px">
           <p-cellEditor>
             <ng-template pTemplate="input">
               <input
@@ -128,7 +128,7 @@
         <td>{{ customer.notaTres }}</td>
         <td>{{ customer.notaQuatro }}</td>
         <td>{{ customer.notaFinal }}</td> -->
-        <td>
+        <td style="width: 250px">
           <div class="acoes">
             <button
               *ngIf="!editing"
