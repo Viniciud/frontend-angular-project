@@ -13,6 +13,10 @@ import { GridNotasModule } from './modules/components/grid-notas/grid-notas.modu
 import { FormularioAlunosModule } from './modules/components/formulario-alunos/formulario-alunos.module';
 import { CommonModule } from '@angular/common';
 
+import { ChartModule } from 'primeng/chart';
+import { RelatorioModule } from './modules/components/relatorio/relatorio.module';
+import { TelaLoginModule } from './modules/pages/tela-login/tela-login.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -26,6 +30,9 @@ import { CommonModule } from '@angular/common';
     GridAlunosModule,
     GridNotasModule,
     FormularioAlunosModule,
+    RelatorioModule,
+    ChartModule,
+    TelaLoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

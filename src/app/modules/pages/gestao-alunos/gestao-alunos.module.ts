@@ -10,6 +10,7 @@ import { GestaoAlunosRoutingModule } from './gestao-alunos-routing.module';
 import { GridNotasModule } from '../../components/grid-notas/grid-notas.module';
 import { GridAlunosModule } from '../../components/grid-alunos/grid-alunos.module';
 import { MenuBarModule } from '../../components/menu-bar/menu-bar.module';
+import { RelatorioModule } from '../../components/relatorio/relatorio.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { MenuBarModule } from '../../components/menu-bar/menu-bar.module';
     GridNotasModule,
     GridAlunosModule,
     MenuBarModule,
+    RelatorioModule,
   ],
   exports: [GestaoAlunosComponent],
   declarations: [GestaoAlunosComponent],
