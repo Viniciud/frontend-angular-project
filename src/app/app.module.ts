@@ -10,10 +10,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FieldsetModule } from 'primeng/fieldset';
 import { GridAlunosModule } from './modules/components/grid-alunos/grid-alunos.module';
 import { GridNotasModule } from './modules/components/grid-notas/grid-notas.module';
+import { FormularioAlunosModule } from './modules/components/formulario-alunos/formulario-alunos.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     InputTextModule,
@@ -22,6 +25,7 @@ import { GridNotasModule } from './modules/components/grid-notas/grid-notas.modu
     MenuBarModule,
     GridAlunosModule,
     GridNotasModule,
+    FormularioAlunosModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

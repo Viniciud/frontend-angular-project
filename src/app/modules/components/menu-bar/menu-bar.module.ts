@@ -9,13 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MenubarModule,
-    InputTextModule,
-  ],
+  imports: [CommonModule, MenubarModule, InputTextModule],
   exports: [MenuBarComponent],
   declarations: [MenuBarComponent],
 })

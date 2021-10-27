@@ -10,14 +10,20 @@
   align-items: center;
 }
 
+.header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+}
+
 .acoes {
   width: 100px;
 }
 
-:host .p-button {
-  width: 30px;
+:host .p-table .p-button {
+  width: 20px;
   height: 30px;
-  font-size: 2px;
 }
 
 .acoes :last-child {

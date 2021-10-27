@@ -10,7 +10,7 @@ import { AlunoModel } from '../../models/aluno.model';
   providers: [MessageService],
 })
 export class GridNotasComponent implements OnInit {
-  customers: AlunoModel[] = [
+  alunos: AlunoModel[] = [
     {
       id: 1,
       nome: 'Joao de Teste de sobrenome',
@@ -214,18 +214,15 @@ export class GridNotasComponent implements OnInit {
   }
 
   isLastPage(): boolean {
-    return this.customers
-      ? this.first === this.customers.length - this.rows
-      : true;
+    return this.alunos ? this.first === this.alunos.length - this.rows : true;
   }
 
   isFirstPage(): boolean {
-    return this.customers ? this.first === 0 : true;
+    return this.alunos ? this.first === 0 : true;
   }
 
   onRowEditInit(aluno: AlunoModel) {
     console.log('ALUNO:', aluno);
-    // this.customers[aluno.id] = { ...aluno };
   }
 
   onRowEditSave(aluno: AlunoModel) {

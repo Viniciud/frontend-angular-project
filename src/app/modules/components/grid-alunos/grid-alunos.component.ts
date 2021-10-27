@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AlunoModel } from '../../models/aluno.model';
 
 @Component({
@@ -7,7 +7,10 @@ import { AlunoModel } from '../../models/aluno.model';
   styleUrls: ['./grid-alunos.component.scss'],
 })
 export class GridAlunosComponent implements OnInit {
-  customers: AlunoModel[] = [
+  @Output() showCadastro = new EventEmitter();
+  @Output() showEdicao = new EventEmitter();
+
+  alunos: AlunoModel[] = [
     {
       id: 1,
       nome: 'Joao de Teste de sobrenome',
@@ -111,12 +114,18 @@ export class GridAlunosComponent implements OnInit {
   }
 
   isLastPage(): boolean {
-    return this.customers
-      ? this.first === this.customers.length - this.rows
-      : true;
+    return this.alunos ? this.first === this.alunos.length - this.rows : true;
   }
 
   isFirstPage(): boolean {
-    return this.customers ? this.first === 0 : true;
+    return this.alunos ? this.first === 0 : true;
+  }
+
+  showItemCadastro(value: Boolean) {
+    this.showCadastro.emit(value);
+  }
+
+  showItemEdicao(item: any) {
+    this.showEdicao.emit(item);
   }
 }
