@@ -1,0 +1,131 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AlunoModel } from '../../models/aluno.model';
+
+@Component({
+  selector: 'app-grid-professores',
+  templateUrl: './grid-professores.component.html',
+  styleUrls: ['./grid-professores.component.scss'],
+})
+export class GridProfessoresComponent implements OnInit {
+  @Output() showCadastro = new EventEmitter();
+  @Output() showEdicao = new EventEmitter();
+
+  alunos: AlunoModel[] = [
+    {
+      id: 1,
+      nome: 'Joao de Teste de sobrenome',
+    },
+    {
+      id: 2,
+      nome: 'Maria de Teste de sobrenome',
+    },
+    {
+      id: 3,
+      nome: 'Paulo de Teste de sobrenome',
+    },
+    {
+      id: 4,
+      nome: 'Pedro de Teste de sobrenome',
+    },
+    {
+      id: 5,
+      nome: 'Matheus de Teste de sobrenome',
+    },
+    {
+      id: 6,
+      nome: 'Carlos de Teste de sobrenome',
+    },
+    {
+      id: 7,
+      nome: 'Andre de Teste de sobrenome',
+    },
+    {
+      id: 8,
+      nome: 'Leticia com sobrenome',
+    },
+    {
+      id: 9,
+      nome: 'Sara sobrenome',
+    },
+    {
+      id: 10,
+      nome: 'Marcos',
+    },
+    {
+      id: 11,
+      nome: 'Jose',
+    },
+    {
+      id: 12,
+      nome: 'Cristiano',
+    },
+    {
+      id: 13,
+      nome: 'Suzana',
+    },
+    {
+      id: 14,
+      nome: 'Kevin',
+    },
+    {
+      id: 15,
+      nome: 'Marina',
+    },
+    {
+      id: 16,
+      nome: 'Yuri',
+    },
+    {
+      id: 17,
+      nome: 'Cesar',
+    },
+    {
+      id: 18,
+      nome: 'Bryan',
+    },
+    {
+      id: 19,
+      nome: 'Roberto',
+    },
+    {
+      id: 20,
+      nome: 'Lucas',
+    },
+  ];
+
+  first = 0;
+
+  rows = 10;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  next() {
+    this.first = this.first + this.rows;
+  }
+
+  prev() {
+    this.first = this.first - this.rows;
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isLastPage(): boolean {
+    return this.alunos ? this.first === this.alunos.length - this.rows : true;
+  }
+
+  isFirstPage(): boolean {
+    return this.alunos ? this.first === 0 : true;
+  }
+
+  showItemCadastro(value: Boolean) {
+    this.showCadastro.emit(value);
+  }
+
+  showItemEdicao(item: any) {
+    this.showEdicao.emit(item);
+  }
+}

@@ -1,0 +1,105 @@
+<div class="card">
+  <div class="header-card">
+    <h1>{{ titulo }}</h1>
+  </div>
+  <form class="form" [formGroup]="formGroup">
+    <input
+      formControlName="nome"
+      type="text"
+      placeholder="Nome"
+      [ngModel]="formularioValues.nome"
+      pInputText
+    />
+
+    <input
+      formControlName="sobrenome"
+      type="text"
+      placeholder="Sobrenome"
+      [ngModel]="formularioValues.sobrenome"
+      pInputText
+    />
+
+    <input
+      formControlName="email"
+      type="text"
+      placeholder="Email"
+      [ngModel]="formularioValues.sobrenome"
+      pInputText
+    />
+
+    <input
+      formControlName="senha"
+      type="password"
+      placeholder="senha"
+      [ngModel]="formularioValues.sobrenome"
+      pInputText
+    />
+
+    <input
+      formControlName="disciplina"
+      type="email"
+      placeholder="Disciplina"
+      [ngModel]="formularioValues.sobrenome"
+      pInputText
+    />
+
+    <input
+      formControlName="rua"
+      type="text"
+      placeholder="Rua"
+      [ngModel]="formularioValues.rua"
+      pInputText
+    />
+    <input
+      formControlName="numero"
+      type="text"
+      placeholder="Número"
+      [ngModel]="formularioValues.numero"
+      pInputText
+    />
+
+    <input
+      formControlName="complemento"
+      type="text"
+      placeholder="Complemento"
+      [ngModel]="formularioValues.complemento"
+      pInputText
+    />
+
+    <input
+      formControlName="cep"
+      type="text"
+      placeholder="Cep"
+      [ngModel]="formularioValues.cep"
+      pInputText
+    />
+
+    <input
+      formControlName="cidade"
+      type="text"
+      placeholder="Cidade"
+      [ngModel]="formularioValues.cidade"
+      pInputText
+    />
+
+    <input
+      formControlName="estado"
+      type="text"
+      placeholder="Estado"
+      [ngModel]="formularioValues.estado"
+      pInputText
+    />
+  </form>
+  <div class="buttons">
+    <div *ngIf="instancia == 'cadastro'">
+      <button pButton type="button" class="p-button-outlined">
+        Salvar Cadastro
+      </button>
+    </div>
+    <div *ngIf="instancia == 'edicao'">
+      <button pButton type="button" class="p-button-outlined">
+        Salvar Edição
+      </button>
+    </div>
+  </div>
+</div>

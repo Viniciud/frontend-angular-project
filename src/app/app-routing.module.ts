@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.GestaoAlunosModule
       ),
   },
+  {
+    path: 'gestao-professores',
+    loadChildren: () =>
+      import(
+        './modules/pages/gestao-professores/gestao-professores.module'
+      ).then((m) => m.GestaoProfessoresModule),
+  },
 ];
 
 @NgModule({
