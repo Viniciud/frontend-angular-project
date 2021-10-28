@@ -12,6 +12,7 @@ import {
   styleUrls: ['./gestao-professores.component.scss'],
 })
 export class GestaoProfessoresComponent implements OnInit {
+  access: Boolean = false;
   showListaProfessores: Boolean = false;
   showRelatorio: Boolean = false;
   showFormProfessor: Boolean = false;
@@ -67,10 +68,10 @@ export class GestaoProfessoresComponent implements OnInit {
     this.showListaProfessores = false;
 
     this.formGroup.value.nome = item.nome;
-    console.log('Professor', item);
   }
 
   ngOnInit(): void {
+    this.access = Boolean(localStorage.getItem('role') == 'admin');
     this.itemSelector(2);
   }
 }

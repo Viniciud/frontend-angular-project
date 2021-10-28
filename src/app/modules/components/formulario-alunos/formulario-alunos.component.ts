@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { dataBase } from 'src/assets/db';
 
 @Component({
   selector: 'app-formulario-alunos',
@@ -11,8 +12,12 @@ export class FormularioAlunosComponent implements OnInit {
 
   @Input() formGroup: any;
   @Input() instancia: any;
+  @Output() alunoAtualizado = new EventEmitter();
+  @Output() novoAluno = new EventEmitter();
+  idDoAluno: any;
 
   formularioValues = {
+    id: '',
     nome: '',
     sobrenome: '',
     rua: '',
@@ -32,6 +37,8 @@ export class FormularioAlunosComponent implements OnInit {
 
   initializeForm() {
     if (this.instancia == 'edicao') {
+      this.idDoAluno = this.formGroup.value.id;
+      this.formularioValues.id = this.formGroup.value.id;
       this.formularioValues.nome = this.formGroup.value.nome;
       this.formularioValues.sobrenome = this.formGroup.value.sobrenome;
       this.formularioValues.rua = this.formGroup.value.rua;
@@ -41,12 +48,15 @@ export class FormularioAlunosComponent implements OnInit {
       this.formularioValues.cep = this.formGroup.value.cep;
       this.formularioValues.cidade = this.formGroup.value.cidade;
       this.formularioValues.estado = this.formGroup.value.estado;
-
-      console.log('DADOS', this.formularioValues);
-
-      this.formGroup.controls.nome.valueChanges.subscribe((value: any) => {
-        console.log('VALUE', value);
-      });
     }
+  }
+
+  salvarEdicao() {
+    this.formGroup.value.id = this.idDoAluno;
+    this.alunoAtualizado.emit(this.formGroup.value);
+  }
+
+  salvarCadastro() {
+    this.novoAluno.emit(this.formGroup.value);
   }
 }

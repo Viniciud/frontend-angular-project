@@ -1,3 +1,4 @@
+import { ToastModule } from 'primeng/toast';
 import { GestaoAlunosComponent } from './gestao-alunos.component';
 import { FormularioAlunosModule } from '../../components/formulario-alunos/formulario-alunos.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -24,6 +25,7 @@ import { RelatorioModule } from '../../components/relatorio/relatorio.module';
     GridAlunosModule,
     MenuBarModule,
     RelatorioModule,
+    ToastModule,
   ],
   exports: [GestaoAlunosComponent],
   declarations: [GestaoAlunosComponent],
