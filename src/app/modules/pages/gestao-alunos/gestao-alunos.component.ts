@@ -102,11 +102,8 @@ export class GestaoAlunosComponent implements OnInit {
   }
 
   salvarCadastro(novoAluno: any) {
-    if (dataBase.length == 0) {
-      novoAluno.id = 1;
-    } else {
-      novoAluno.id = dataBase[dataBase.length - 1].id;
-    }
+    novoAluno.id = dataBase.length + 1;
+
     dataBase.push(novoAluno);
     this.messageService.add({
       severity: 'success',

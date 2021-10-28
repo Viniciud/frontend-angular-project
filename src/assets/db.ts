@@ -17,3 +17,37 @@ export var dataBase = [
     notaFinal: 80,
   },
 ];
+
+// DATA BASE PROFESSORES
+export var dataBaseProfessores = [
+  {
+    id: 1,
+    nome: 'João',
+    sobrenome: 'Costa',
+    email: 'jaoc@gmail.com',
+    senha: 'senha',
+    disciplina: 'HISTORIA',
+    rua: 'Rua das Palmeiras',
+    bairro: 'Bela Vista',
+    numero: 120,
+    complemento: 'Casa',
+    cep: '37410000',
+    cidade: 'Três Corações',
+    estado: 'MG',
+  },
+  {
+    id: 2,
+    nome: 'Ana',
+    sobrenome: 'Silva',
+    email: 'aninha@gmail.com',
+    senha: 'senha',
+    disciplina: 'PORTUGUES',
+    rua: 'Rua das Palmeiras',
+    bairro: 'Bela Vista',
+    numero: 120,
+    complemento: 'Casa',
+    cep: '37410000',
+    cidade: 'Três Corações',
+    estado: 'MG',
+  },
+];

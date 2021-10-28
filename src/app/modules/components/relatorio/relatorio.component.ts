@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { dataBase } from 'src/assets/db';
 
 @Component({
   selector: 'app-relatorio',
@@ -6,38 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./relatorio.component.scss'],
 })
 export class RelatorioComponent implements OnInit {
+  dados = dataBase;
   data: any;
+  data2: any;
 
   basicOptions: any;
 
   constructor() {}
 
+  calcMedia() {
+    let dado = [0, 0, 0, 0, 0];
+    this.dados.map((item) => {
+      if (item.notaUm > 15) {
+        dado[0] += 1;
+      }
+      if (item.notaDois > 15) {
+        dado[1] += 1;
+      }
+      if (item.notaTres > 15) {
+        dado[2] += 1;
+      }
+      if (item.notaQuatro > 15) {
+        dado[3] += 1;
+      }
+      if (item.notaFinal > 60) {
+        dado[4] += 1;
+      }
+    });
+    console.log(dado);
+    return dado;
+  }
+
   ngOnInit(): void {
     this.data = {
       labels: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
+        '1º Bimestre',
+        '2º Bimestre',
+        '3º Bimestre',
+        '4º Bimestre',
+        'Nota Final',
       ],
       datasets: [
         {
-          label: 'My First dataset',
+          label: 'Nota',
           backgroundColor: '#42A5F5',
-          data: [65, 59, 80, 81, 56, 55, 40, 10, 20, 20, 3, 32],
-        },
-        {
-          label: 'My Second dataset',
-          backgroundColor: '#FFA726',
-          data: [28, 48, 40, 19, 86, 27, 90, 9, 2, 11, 70, 12],
+          data: this.calcMedia(),
         },
       ],
     };

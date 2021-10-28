@@ -1,5 +1,13 @@
+.page {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .card {
   margin: 10px;
+  width: 100%;
   padding: 12px;
   border-radius: 4px;
   box-shadow: 1px 2px 4px black;
