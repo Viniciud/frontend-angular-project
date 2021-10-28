@@ -125,6 +125,25 @@ export class GestaoAlunosComponent implements OnInit {
     console.log(dataBase);
   }
 
+  inserirNota(alunoNota: any) {
+    dataBase.map((aluno, index) => {
+      if (aluno.id == alunoNota.id) {
+        alunoNota.notaFinal =
+          alunoNota.notaUm +
+          alunoNota.notaDois +
+          alunoNota.notaTres +
+          alunoNota.notaQuatro;
+        dataBase[index] = alunoNota;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Mensagem do sistema!',
+          detail: 'Atualizado com Sucesso!',
+        });
+        console.log('BASE ATUALIZADA', dataBase);
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.access = Boolean(localStorage.getItem('role') == 'professor');
     this.itemSelector(2);

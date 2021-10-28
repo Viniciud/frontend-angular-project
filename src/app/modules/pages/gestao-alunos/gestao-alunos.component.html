@@ -21,7 +21,10 @@
     ></app-grid-alunos>
   </div>
   <div *ngIf="showListaNotaAlunos">
-    <app-grid-notas></app-grid-notas>
+    <app-grid-notas
+      [alunos]="dados"
+      (notaAluno)="inserirNota($event)"
+    ></app-grid-notas>
   </div>
   <div *ngIf="showFormAluno">
     <app-formulario-alunos
