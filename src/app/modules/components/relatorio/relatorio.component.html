@@ -1,6 +1,24 @@
 <div class="page">
-  <div class="card">
+  <div *ngIf="access == 'professor'" class="card">
     <h1>Notas acima da média</h1>
     <p-chart type="bar" [data]="data" [options]="basicOptions"></p-chart>
+  </div>
+  <div *ngIf="access == 'professor'" class="card">
+    <h1>Média da notas</h1>
+    <p-chart type="bar" [data]="data3" [options]="basicOptions"></p-chart>
+  </div>
+  <div *ngIf="access == 'admin'" class="card-prof-disc">
+    <h2>Qtd. Professores em cada Disciplina</h2>
+    <p-chart type="bar" [data]="data2" [options]="basicOptions"></p-chart>
+  </div>
+  <div *ngIf="access == 'admin'" class="card-qtds">
+    <div class="p-field p-col-12 p-md-4">
+      <h3>Qtd. de Profs.</h3>
+      <p-knob [(ngModel)]="qtdProfessores" [readonly]="true"></p-knob>
+    </div>
+    <div class="p-field p-col-12 p-md-4" style="margin-left: 10px">
+      <h3>Qtd. de Alunos</h3>
+      <p-knob [(ngModel)]="qtdAlunos" [readonly]="true"></p-knob>
+    </div>
   </div>
 </div>

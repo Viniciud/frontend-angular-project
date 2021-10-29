@@ -51,6 +51,13 @@ export class MenuBarComponent implements OnInit {
     } else if (localStorage.getItem('role') == 'admin') {
       this.items = [
         {
+          label: 'Relatório',
+          icon: 'pi pi-fw pi-file',
+          command: () => {
+            this.showComponent.emit(1);
+          },
+        },
+        {
           label: 'Professores',
           icon: 'pi pi-fw pi-user',
           command: () => {

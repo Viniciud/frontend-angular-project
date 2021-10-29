@@ -9,6 +9,9 @@
   <div>
     <app-menu-bar (showComponent)="itemSelector($event)"></app-menu-bar>
   </div>
+  <div *ngIf="showRelatorio">
+    <app-relatorio></app-relatorio>
+  </div>
   <div *ngIf="showListaProfessores">
     <app-grid-professores
       [professores]="dados"
