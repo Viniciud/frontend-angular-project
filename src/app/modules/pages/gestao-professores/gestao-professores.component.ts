@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
@@ -39,7 +40,8 @@ export class GestaoProfessoresComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private httpClient: HttpClient
   ) {}
 
   itemSelector(item: number) {
@@ -86,6 +88,9 @@ export class GestaoProfessoresComponent implements OnInit {
   }
 
   salvarEdicao(professorAtualizado: any) {
+    this.httpClient.post('http://localhost:8080/api/professor/editar-professor', professorAtualizado).subscribe(result => {
+      console.log(result);
+    });
     console.log('RECEBIDO', professorAtualizado);
 
     dataBaseProfessores.map((professor, index) => {
@@ -103,6 +108,9 @@ export class GestaoProfessoresComponent implements OnInit {
   }
 
   salvarCadastro(novoProfessor: any) {
+    this.httpClient.post('http://localhost:8080/api/admin/cadastrar-professor', novoProfessor).subscribe(result => {
+      console.log(result);
+    });
     novoProfessor.id = dataBaseProfessores.length + 1;
 
     dataBaseProfessores.push(novoProfessor);
@@ -115,6 +123,10 @@ export class GestaoProfessoresComponent implements OnInit {
   }
 
   excluirProfessor(professor: any) {
+    this.httpClient.put('http://localhost:8080/api/admin/delete-professor', professor).subscribe(result => {
+      console.log(result);
+    });
+
     var indice = dataBaseProfessores.indexOf(professor);
     while (indice >= 0) {
       dataBaseProfessores.splice(indice, 1);
@@ -123,8 +135,17 @@ export class GestaoProfessoresComponent implements OnInit {
     console.log(dataBaseProfessores);
   }
 
+  pegarTodosProfessores(){
+    this.httpClient.get('http://localhost:8080/api/admin/listar/professores').subscribe(professores => {
+      console.log(professores);
+      return professores;
+    });
+  }
+
   ngOnInit(): void {
     this.access = Boolean(localStorage.getItem('role') == 'admin');
     this.itemSelector(2);
+
+    // this.dados = this.pegarTodosProfessores();
   }
 }
