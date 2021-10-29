@@ -10,6 +10,7 @@ import { GestaoProfessoresRoutingModule } from './gestao-professores-routing.mod
 import { GridNotasModule } from '../../components/grid-notas/grid-notas.module';
 import { GridProfessoresModule } from '../../components/grid-professores/grid-professores.module';
 import { MenuBarModule } from '../../components/menu-bar/menu-bar.module';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { MenuBarModule } from '../../components/menu-bar/menu-bar.module';
     GridNotasModule,
     GridProfessoresModule,
     MenuBarModule,
+    ToastModule,
   ],
   exports: [GestaoProfessoresComponent],
   declarations: [GestaoProfessoresComponent],

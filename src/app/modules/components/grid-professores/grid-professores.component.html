@@ -12,7 +12,7 @@
   </div>
   <p-table
     styleClass="p-datatable-sm"
-    [value]="alunos"
+    [value]="professores"
     [paginator]="true"
     [rows]="rows"
     [showCurrentPageReport]="true"
@@ -23,15 +23,21 @@
   >
     <ng-template class="header-table" pTemplate="header">
       <tr>
-        <th>MATRÍCULA</th>
+        <th>REGISTRO</th>
         <th>NOME</th>
+        <th>DISCIPLINA</th>
+        <th>EMAIL</th>
         <th>AÇÕES</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-aluno>
+    <ng-template pTemplate="body" let-professor>
       <tr>
-        <td style="width: 250px">{{ aluno.id }}</td>
-        <td style="width: 250px">{{ aluno.nome }}</td>
+        <td style="width: 250px">{{ professor.id }}</td>
+        <td style="width: 250px">
+          {{ professor.nome + " " + professor.sobrenome }}
+        </td>
+        <td style="width: 250px">{{ professor.disciplina }}</td>
+        <td style="width: 250px">{{ professor.email }}</td>
         <td style="width: 250px">
           <div class="acoes">
             <button
@@ -39,7 +45,7 @@
               pRipple
               type="button"
               icon="pi pi-user-edit"
-              (click)="showItemEdicao(aluno)"
+              (click)="showItemEdicao(professor)"
               class="p-button-rounded p-button-warning"
             ></button>
             <button
@@ -47,6 +53,7 @@
               pRipple
               type="button"
               icon="pi pi-times"
+              (click)="excluirProfessor(professor)"
               class="p-button-rounded p-button-danger"
             ></button>
           </div>

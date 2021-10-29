@@ -8,7 +8,7 @@ export var dataBase = [
     numero: 120,
     complemento: 'Casa',
     cep: '37410000',
-    cidade: 'Três Corações',
+    cidade: 'TRES CORACOES',
     estado: 'MG',
     notaUm: 20,
     notaDois: 20,
@@ -32,7 +32,7 @@ export var dataBaseProfessores = [
     numero: 120,
     complemento: 'Casa',
     cep: '37410000',
-    cidade: 'Três Corações',
+    cidade: 'TRES CORACOES',
     estado: 'MG',
   },
   {
@@ -47,7 +47,7 @@ export var dataBaseProfessores = [
     numero: 120,
     complemento: 'Casa',
     cep: '37410000',
-    cidade: 'Três Corações',
+    cidade: 'TRES CORACOES',
     estado: 'MG',
   },
 ];

@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="sem-acesso" *ngIf="!access">
   <h1 style="color: red">Você não tem permissão para acessar essa página!</h1>
   <img
@@ -10,8 +11,10 @@
   </div>
   <div *ngIf="showListaProfessores">
     <app-grid-professores
+      [professores]="dados"
       (showCadastro)="showItemCadastro($event)"
       (showEdicao)="showItemEdicao($event)"
+      (professorExclusao)="excluirProfessor($event)"
     ></app-grid-professores>
   </div>
   <div *ngIf="showFormProfessor">
@@ -19,6 +22,8 @@
       [titulo]="tituloForm"
       [instancia]="formInstancia"
       [formGroup]="formGroup"
+      (professorAtualizado)="salvarEdicao($event)"
+      (novoProfessor)="salvarCadastro($event)"
     ></app-formulario-professores>
   </div>
 </div>

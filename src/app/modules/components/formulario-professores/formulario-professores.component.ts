@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,8 +11,12 @@ export class FormularioProfessoresComponent implements OnInit {
 
   @Input() formGroup: any;
   @Input() instancia: any;
+  @Output() professorAtualizado = new EventEmitter();
+  @Output() novoProfessor = new EventEmitter();
+  idDoProfessor: any;
 
   formularioValues = {
+    id: '',
     nome: '',
     sobrenome: '',
     email: '',
@@ -35,6 +39,7 @@ export class FormularioProfessoresComponent implements OnInit {
 
   initializeForm() {
     if (this.instancia == 'edicao') {
+      this.idDoProfessor = this.formGroup.value.id;
       this.formularioValues.nome = this.formGroup.value.nome;
       this.formularioValues.sobrenome = this.formGroup.value.sobrenome;
       this.formularioValues.email = this.formGroup.value.email;
@@ -47,12 +52,25 @@ export class FormularioProfessoresComponent implements OnInit {
       this.formularioValues.cep = this.formGroup.value.cep;
       this.formularioValues.cidade = this.formGroup.value.cidade;
       this.formularioValues.estado = this.formGroup.value.estado;
-
-      console.log('DADOS', this.formularioValues);
-
-      this.formGroup.controls.nome.valueChanges.subscribe((value: any) => {
-        console.log('VALUE', value);
-      });
     }
+    this.formGroup.controls.disciplina.valueChanges.subscribe(
+      (value: string) => {
+        this.formGroup.value.disciplina = value.toUpperCase();
+        this.formularioValues.disciplina = value.toUpperCase();
+      }
+    );
+    this.formGroup.controls.cidade.valueChanges.subscribe((value: string) => {
+      this.formGroup.value.cidade = value.toUpperCase();
+      this.formularioValues.cidade = value.toUpperCase();
+    });
+  }
+
+  salvarEdicao() {
+    this.formGroup.value.id = this.idDoProfessor;
+    this.professorAtualizado.emit(this.formGroup.value);
+  }
+
+  salvarCadastro() {
+    this.novoProfessor.emit(this.formGroup.value);
   }
 }

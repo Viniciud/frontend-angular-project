@@ -23,7 +23,7 @@
       formControlName="email"
       type="text"
       placeholder="Email"
-      [ngModel]="formularioValues.sobrenome"
+      [ngModel]="formularioValues.email"
       pInputText
     />
 
@@ -31,7 +31,7 @@
       formControlName="senha"
       type="password"
       placeholder="senha"
-      [ngModel]="formularioValues.sobrenome"
+      [ngModel]="formularioValues.senha"
       pInputText
     />
 
@@ -39,7 +39,7 @@
       formControlName="disciplina"
       type="email"
       placeholder="Disciplina"
-      [ngModel]="formularioValues.sobrenome"
+      [ngModel]="formularioValues.disciplina"
       pInputText
     />
 
@@ -92,12 +92,22 @@
   </form>
   <div class="buttons">
     <div *ngIf="instancia == 'cadastro'">
-      <button pButton type="button" class="p-button-outlined">
+      <button
+        (click)="salvarCadastro()"
+        pButton
+        type="button"
+        class="p-button-outlined"
+      >
         Salvar Cadastro
       </button>
     </div>
     <div *ngIf="instancia == 'edicao'">
-      <button pButton type="button" class="p-button-outlined">
+      <button
+        (click)="salvarEdicao()"
+        pButton
+        type="button"
+        class="p-button-outlined"
+      >
         Salvar Edição
       </button>
     </div>
