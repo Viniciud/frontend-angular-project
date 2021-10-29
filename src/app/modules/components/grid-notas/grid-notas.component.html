@@ -106,28 +106,8 @@
           </p-cellEditor>
         </td>
         <td style="width: 250px">
-          <p-cellEditor>
-            <ng-template pTemplate="input">
-              <input
-                style="max-width: 100px"
-                pInputText
-                type="number"
-                [(ngModel)]="aluno.notaFinal"
-                required
-              />
-            </ng-template>
-            <ng-template pTemplate="output">
-              {{ aluno.notaFinal }}
-            </ng-template>
-          </p-cellEditor>
+          {{ aluno.notaFinal }}
         </td>
-        <!-- <td>{{ customer.id }}</td>
-        <td>{{ customer.nome }}</td>
-        <td>{{ customer.notaUm }}</td>
-        <td>{{ customer.notaDois }}</td>
-        <td>{{ customer.notaTres }}</td>
-        <td>{{ customer.notaQuatro }}</td>
-        <td>{{ customer.notaFinal }}</td> -->
         <td style="width: 250px">
           <div class="acoes">
             <button

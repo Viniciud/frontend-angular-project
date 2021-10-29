@@ -1,5 +1,29 @@
+.page {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .card {
   margin: 10px;
+  width: 48%;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px black;
+}
+
+.card-qtds {
+  display: flex;
+  margin: 10px;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px black;
+}
+
+.card-prof-disc {
+  margin: 10px;
+  width: 70%;
   padding: 12px;
   border-radius: 4px;
   box-shadow: 1px 2px 4px black;

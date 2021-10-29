@@ -32,7 +32,7 @@
       <tr>
         <td style="width: 250px">{{ aluno.id }}</td>
         <td style="width: 250px">
-          {{ aluno.nome }}
+          {{ aluno.nome + " " + aluno.sobrenome }}
         </td>
         <td style="width: 250px">
           <div class="acoes">
@@ -49,6 +49,7 @@
               pRipple
               type="button"
               icon="pi pi-times"
+              (click)="excluirAluno(aluno)"
               class="p-button-rounded p-button-danger"
             ></button>
           </div>

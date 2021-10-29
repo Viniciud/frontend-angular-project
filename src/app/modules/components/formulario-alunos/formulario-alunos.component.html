@@ -28,6 +28,16 @@
       [ngModel]="formularioValues.rua"
       pInputText
     />
+
+    <input
+      formControlName="bairro"
+      id="float-input"
+      type="text"
+      placeholder="Bairro"
+      [ngModel]="formularioValues.bairro"
+      pInputText
+    />
+
     <input
       formControlName="numero"
       id="float-input"
@@ -75,12 +85,22 @@
   </form>
   <div class="buttons">
     <div *ngIf="instancia == 'cadastro'">
-      <button pButton type="button" class="p-button-outlined">
+      <button
+        (click)="salvarCadastro()"
+        pButton
+        type="button"
+        class="p-button-outlined"
+      >
         Salvar Cadastro
       </button>
     </div>
     <div *ngIf="instancia == 'edicao'">
-      <button pButton type="button" class="p-button-outlined">
+      <button
+        (click)="salvarEdicao()"
+        pButton
+        type="button"
+        class="p-button-outlined"
+      >
         Salvar Edição
       </button>
     </div>

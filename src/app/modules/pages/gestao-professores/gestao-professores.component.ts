@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { dataBaseProfessores } from 'src/assets/db';
 
 @Component({
   selector: 'app-gestao-professores',
   templateUrl: './gestao-professores.component.html',
   styleUrls: ['./gestao-professores.component.scss'],
+  providers: [MessageService],
 })
 export class GestaoProfessoresComponent implements OnInit {
+  dados: any = dataBaseProfessores;
+  access: Boolean = false;
   showListaProfessores: Boolean = false;
   showRelatorio: Boolean = false;
   showFormProfessor: Boolean = false;
@@ -21,6 +21,7 @@ export class GestaoProfessoresComponent implements OnInit {
   tituloForm: string = '';
 
   formGroup: FormGroup = this.formBuilder.group({
+    id: new FormControl(null),
     nome: new FormControl(null),
     sobrenome: new FormControl(null),
     email: new FormControl(null),
@@ -36,7 +37,10 @@ export class GestaoProfessoresComponent implements OnInit {
     foto: new FormControl(null),
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private messageService: MessageService
+  ) {}
 
   itemSelector(item: number) {
     this.showRelatorio = false;
@@ -66,11 +70,61 @@ export class GestaoProfessoresComponent implements OnInit {
     this.showFormProfessor = true;
     this.showListaProfessores = false;
 
+    this.formGroup.value.id = item.id;
     this.formGroup.value.nome = item.nome;
-    console.log('Professor', item);
+    this.formGroup.value.sobrenome = item.sobrenome;
+    this.formGroup.value.email = item.email;
+    this.formGroup.value.senha = item.senha;
+    this.formGroup.value.disciplina = item.disciplina;
+    this.formGroup.value.rua = item.rua;
+    this.formGroup.value.bairro = item.bairro;
+    this.formGroup.value.numero = item.numero;
+    this.formGroup.value.complemento = item.complemento;
+    this.formGroup.value.cep = item.cep;
+    this.formGroup.value.cidade = item.cidade;
+    this.formGroup.value.estado = item.estado;
+  }
+
+  salvarEdicao(professorAtualizado: any) {
+    console.log('RECEBIDO', professorAtualizado);
+
+    dataBaseProfessores.map((professor, index) => {
+      if (professor.id == professorAtualizado.id) {
+        dataBaseProfessores[index] = professorAtualizado;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Mensagem do sistema!',
+          detail: 'Atualizado com Sucesso!',
+        });
+        console.log('BASE ATUALIZADA', dataBaseProfessores);
+        this.itemSelector(2);
+      }
+    });
+  }
+
+  salvarCadastro(novoProfessor: any) {
+    novoProfessor.id = dataBaseProfessores.length + 1;
+
+    dataBaseProfessores.push(novoProfessor);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Mensagem do sistema!',
+      detail: 'Professor Cadastrado com Sucesso!',
+    });
+    this.itemSelector(2);
+  }
+
+  excluirProfessor(professor: any) {
+    var indice = dataBaseProfessores.indexOf(professor);
+    while (indice >= 0) {
+      dataBaseProfessores.splice(indice, 1);
+      indice = dataBaseProfessores.indexOf(professor);
+    }
+    console.log(dataBaseProfessores);
   }
 
   ngOnInit(): void {
+    this.access = Boolean(localStorage.getItem('role') == 'admin');
     this.itemSelector(2);
   }
 }

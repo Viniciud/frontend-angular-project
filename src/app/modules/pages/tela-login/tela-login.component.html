@@ -4,16 +4,27 @@
       <h2>Login</h2>
       <hr />
       <br />
-      <input style="width: 250px" type="email" placeholder="Email" pInputText />
+      <form [formGroup]="formGroup">
+        <input
+          style="width: 250px"
+          formControlName="email"
+          type="email"
+          placeholder="Email"
+          pInputText
+        />
+        <br />
+        <input
+          style="width: 250px"
+          formControlName="senha"
+          type="password"
+          placeholder="Senha"
+          pInputText
+        />
+      </form>
       <br />
-      <input
-        style="width: 250px"
-        type="password"
-        placeholder="Senha"
-        pInputText
-      />
-      <br />
-      <button pButton type="button" class="p-button-outlined">Entrar</button>
+      <button pButton type="button" (click)="login()" class="p-button-outlined">
+        Entrar
+      </button>
     </div>
   </div>
   <div class="background-login"></div>
