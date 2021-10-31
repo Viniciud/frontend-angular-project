@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TelaLoginRoutingModule } from './tela-login.-routing.module';
 import { RouterModule } from '@angular/router';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     ButtonModule,
     ReactiveFormsModule,
     RouterModule,
+    ToastModule,
   ],
   exports: [TelaLoginComponent],
   declarations: [TelaLoginComponent],

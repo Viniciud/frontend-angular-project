@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="tela">
   <div class="form-login">
     <div class="card-login">
@@ -7,6 +8,8 @@
       <form [formGroup]="formGroup">
         <input
           style="width: 250px"
+          required
+          [formNoValidate]
           formControlName="email"
           type="email"
           placeholder="Email"
@@ -14,6 +17,8 @@
         />
         <br />
         <input
+          required
+          [formNoValidate]
           style="width: 250px"
           formControlName="senha"
           type="password"

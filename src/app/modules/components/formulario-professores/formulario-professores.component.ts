@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-formulario-professores',
   templateUrl: './formulario-professores.component.html',
   styleUrls: ['./formulario-professores.component.scss'],
+  providers: [MessageService],
 })
 export class FormularioProfessoresComponent implements OnInit {
   @Input() titulo: any = 'Cadastro de Professor';
@@ -31,7 +33,7 @@ export class FormularioProfessoresComponent implements OnInit {
     estado: '',
   };
 
-  constructor() {}
+  constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -71,6 +73,14 @@ export class FormularioProfessoresComponent implements OnInit {
   }
 
   salvarCadastro() {
-    this.novoProfessor.emit(this.formGroup.value);
+    if (this.formGroup.valid) {
+      this.novoProfessor.emit(this.formGroup.value);
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Mensagem do sistema!',
+        detail: 'Preencha corretamente todos os campos!',
+      });
+    }
   }
 }

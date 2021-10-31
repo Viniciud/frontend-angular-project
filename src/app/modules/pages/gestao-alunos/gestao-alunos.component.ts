@@ -87,9 +87,11 @@ export class GestaoAlunosComponent implements OnInit {
   }
 
   salvarEdicao(alunoAtualizado: any) {
-    this.httpClient.post('http://localhost:8080/api/aluno/update', alunoAtualizado).subscribe(result => {
-      console.log('result: ' + result);
-    });
+    this.httpClient
+      .post('http://localhost:8080/api/aluno/update', alunoAtualizado)
+      .subscribe((result) => {
+        console.log('result: ' + result);
+      });
     console.log('RECEBIDO', alunoAtualizado);
 
     dataBase.map((aluno, index) => {
@@ -107,9 +109,11 @@ export class GestaoAlunosComponent implements OnInit {
   }
 
   salvarCadastro(novoAluno: any) {
-    this.httpClient.post('http://localhost:8080/api/aluno/salvar', novoAluno).subscribe(result => {
-      console.log('result: ' + result);
-    });
+    this.httpClient
+      .post('http://localhost:8080/api/aluno/salvar', novoAluno)
+      .subscribe((result) => {
+        console.log('result: ' + result);
+      });
     novoAluno.id = dataBase.length + 1;
 
     dataBase.push(novoAluno);
@@ -122,14 +126,21 @@ export class GestaoAlunosComponent implements OnInit {
   }
 
   excluirAluno(aluno: any) {
-    this.httpClient.put('http://localhost:8080/api/aluno/remover', aluno).subscribe(result => {
-      console.log('result: ' + result);
-    });
+    this.httpClient
+      .put('http://localhost:8080/api/aluno/remover', aluno)
+      .subscribe((result) => {
+        console.log('result: ' + result);
+      });
     var indice = dataBase.indexOf(aluno);
     while (indice >= 0) {
       dataBase.splice(indice, 1);
       indice = dataBase.indexOf(aluno);
     }
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Mensagem do sistema!',
+      detail: 'Exclusão efetuada com Sucesso!',
+    });
     console.log(dataBase);
   }
 
@@ -140,11 +151,16 @@ export class GestaoAlunosComponent implements OnInit {
       notaTres: alunoNota.notaTres,
       notaQuatro: alunoNota.notaQuatro,
       notaFinal: alunoNota.notaFinal,
-    }
+    };
 
-    this.httpClient.post(`http://localhost:8080/api/aluno/${alunoNota.id}/update-notas`, notas).subscribe(result => {
-      console.log('result: ' + result);
-    });
+    this.httpClient
+      .post(
+        `http://localhost:8080/api/aluno/${alunoNota.id}/update-notas`,
+        notas
+      )
+      .subscribe((result) => {
+        console.log('result: ' + result);
+      });
     dataBase.map((aluno, index) => {
       if (aluno.id == alunoNota.id) {
         alunoNota.notaFinal =
@@ -163,11 +179,13 @@ export class GestaoAlunosComponent implements OnInit {
     });
   }
 
-  pegarTodosAlunos(){
-    this.httpClient.get('http://localhost:8080/api/aluno/listar').subscribe(alunos => {
-      console.log(alunos);
-      return alunos;
-    });
+  pegarTodosAlunos() {
+    this.httpClient
+      .get('http://localhost:8080/api/aluno/listar')
+      .subscribe((alunos) => {
+        console.log(alunos);
+        return alunos;
+      });
   }
 
   ngOnInit(): void {

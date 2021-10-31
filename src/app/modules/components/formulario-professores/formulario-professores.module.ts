@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { InputTextModule } from 'primeng/inputtext';
     FormsModule,
     InputTextModule,
     ReactiveFormsModule,
+    ToastModule,
   ],
   exports: [FormularioProfessoresComponent],
   declarations: [FormularioProfessoresComponent],

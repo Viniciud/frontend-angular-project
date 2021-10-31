@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="card">
   <div class="header-card">
     <h1>{{ titulo }}</h1>
@@ -8,12 +9,14 @@
       type="text"
       placeholder="Nome"
       [ngModel]="formularioValues.nome"
+      required
       pInputText
     />
 
     <input
       formControlName="sobrenome"
       id="float-input"
+      required
       type="text"
       placeholder="Sobrenome"
       [ngModel]="formularioValues.sobrenome"
@@ -22,6 +25,7 @@
 
     <input
       formControlName="rua"
+      required
       id="float-input"
       type="text"
       placeholder="Rua"
@@ -31,6 +35,7 @@
 
     <input
       formControlName="bairro"
+      required
       id="float-input"
       type="text"
       placeholder="Bairro"
@@ -40,6 +45,7 @@
 
     <input
       formControlName="numero"
+      required
       id="float-input"
       type="text"
       placeholder="Número"
@@ -49,6 +55,7 @@
 
     <input
       formControlName="complemento"
+      required
       id="float-input"
       type="text"
       placeholder="Complemento"
@@ -58,6 +65,7 @@
 
     <input
       formControlName="cep"
+      required
       id="float-input"
       type="text"
       placeholder="Cep"
@@ -67,6 +75,7 @@
 
     <input
       formControlName="cidade"
+      required
       id="float-input"
       type="text"
       placeholder="Cidade"
@@ -76,6 +85,7 @@
 
     <input
       formControlName="estado"
+      required
       id="float-input"
       type="text"
       placeholder="Estado"

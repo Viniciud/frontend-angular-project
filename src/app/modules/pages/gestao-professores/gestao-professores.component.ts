@@ -88,9 +88,14 @@ export class GestaoProfessoresComponent implements OnInit {
   }
 
   salvarEdicao(professorAtualizado: any) {
-    this.httpClient.post('http://localhost:8080/api/professor/editar-professor', professorAtualizado).subscribe(result => {
-      console.log(result);
-    });
+    this.httpClient
+      .post(
+        'http://localhost:8080/api/professor/editar-professor',
+        professorAtualizado
+      )
+      .subscribe((result) => {
+        console.log(result);
+      });
     console.log('RECEBIDO', professorAtualizado);
 
     dataBaseProfessores.map((professor, index) => {
@@ -108,9 +113,14 @@ export class GestaoProfessoresComponent implements OnInit {
   }
 
   salvarCadastro(novoProfessor: any) {
-    this.httpClient.post('http://localhost:8080/api/admin/cadastrar-professor', novoProfessor).subscribe(result => {
-      console.log(result);
-    });
+    this.httpClient
+      .post(
+        'http://localhost:8080/api/admin/cadastrar-professor',
+        novoProfessor
+      )
+      .subscribe((result) => {
+        console.log(result);
+      });
     novoProfessor.id = dataBaseProfessores.length + 1;
 
     dataBaseProfessores.push(novoProfessor);
@@ -123,23 +133,32 @@ export class GestaoProfessoresComponent implements OnInit {
   }
 
   excluirProfessor(professor: any) {
-    this.httpClient.put('http://localhost:8080/api/admin/delete-professor', professor).subscribe(result => {
-      console.log(result);
-    });
+    this.httpClient
+      .put('http://localhost:8080/api/admin/delete-professor', professor)
+      .subscribe((result) => {
+        console.log(result);
+      });
 
     var indice = dataBaseProfessores.indexOf(professor);
     while (indice >= 0) {
       dataBaseProfessores.splice(indice, 1);
       indice = dataBaseProfessores.indexOf(professor);
     }
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Mensagem do sistema!',
+      detail: 'Exclusão efetuada com Sucesso!',
+    });
     console.log(dataBaseProfessores);
   }
 
-  pegarTodosProfessores(){
-    this.httpClient.get('http://localhost:8080/api/admin/listar/professores').subscribe(professores => {
-      console.log(professores);
-      return professores;
-    });
+  pegarTodosProfessores() {
+    this.httpClient
+      .get('http://localhost:8080/api/admin/listar/professores')
+      .subscribe((professores) => {
+        console.log(professores);
+        return professores;
+      });
   }
 
   ngOnInit(): void {
