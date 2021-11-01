@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { dataBase, dataBaseProfessores } from 'src/assets/db';
 
@@ -51,19 +52,18 @@ export class RelatorioComponent implements OnInit {
     let soma5: number = 0;
 
     this.dados.map((item) => {
-      soma1 += item.notaUm;
-      soma2 += item.notaDois;
-      soma3 += item.notaTres;
-      soma4 += item.notaQuatro;
-      soma5 += item.notaFinal;
+      soma1 += item.notaUm ? item.notaUm : 0;
+      soma2 += item.notaDois ? item.notaDois : 0;
+      soma3 += item.notaTres ? item.notaTres : 0;
+      soma4 += item.notaQuatro ? item.notaQuatro : 0;
+      soma5 += item.notaFinal ? item.notaFinal : 0;
     });
-
     dado[0] = soma1 / this.dados.length;
     dado[1] = soma2 / this.dados.length;
     dado[2] = soma3 / this.dados.length;
     dado[3] = soma4 / this.dados.length;
     dado[4] = soma5 / this.dados.length;
-
+    console.log('DADO', dado);
     return dado;
   }
 
